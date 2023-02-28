@@ -3,7 +3,7 @@ const connectDB = require("./config/db");
 //*Penser à connecter le dotenv
 const dotenv = require("dotenv").config();
 const cors = require("cors");
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 //-connexion à la DB
 connectDB();
@@ -13,7 +13,7 @@ const app = express();
 //Authorisation CORS (authoriser à inscrire dans la base de donnée)
 app.use(
   cors({
-    origin: "http://localhost:3000",
+    origin: "*",
     credentials: true,
     optionsSuccessStatus: 200,
   })
